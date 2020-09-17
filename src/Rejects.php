@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Rejects {
+namespace Pendolf\Mandrill;
+
+class Rejects {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -13,7 +15,7 @@ address that has been whitelisted will have no effect.
      * @param string $email an email address to block
      * @param string $comment an optional comment describing the rejection
      * @param string $subaccount an optional unique identifier for the subaccount to limit the blacklist entry
-     * @return struct a status object containing the address and the result of the operation
+     * @return mixed a status object containing the address and the result of the operation
      *     - email string the email address you provided
      *     - added boolean whether the operation succeeded
      */
@@ -65,7 +67,7 @@ you can remove from your blacklist, but keep in mind that each deletion
 has an affect on your reputation.
      * @param string $email an email address
      * @param string $subaccount an optional unique identifier for the subaccount to limit the blacklist deletion
-     * @return struct a status object containing the address and whether the deletion succeeded.
+     * @return mixed a status object containing the address and whether the deletion succeeded.
      *     - email string the email address that was removed from the blacklist
      *     - deleted boolean whether the address was deleted successfully.
      *     - subaccount string the subaccount blacklist that the address was removed from, if any

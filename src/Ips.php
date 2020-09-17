@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Ips {
+namespace Pendolf\Mandrill;
+
+class Ips {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -30,7 +32,7 @@ class Mandrill_Ips {
     /**
      * Retrieves information about a single dedicated ip.
      * @param string $ip a dedicated IP address
-     * @return struct Information about the dedicated ip
+     * @return mixed Information about the dedicated ip
      *     - ip string the ip address
      *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - pool string the name of the pool that this dedicated IP belongs to
@@ -55,7 +57,7 @@ have one outstanding request at any time, and provisioning requests
 are processed within 24 hours.
      * @param boolean $warmup whether to enable warmup mode for the ip
      * @param string $pool the id of the pool to add the dedicated ip to, or null to use your account's default pool
-     * @return struct a description of the provisioning request that was created
+     * @return mixed a description of the provisioning request that was created
      *     - requested_at string the date and time that the request was created as a UTC timestamp in YYYY-MM-DD HH:MM:SS format
      */
     public function provision($warmup=false, $pool=null) {
@@ -69,7 +71,7 @@ Mandrill will gradually increase the percentage of your mail that is sent over
 the warming-up IP, over a period of roughly 30 days. The rest of your mail
 will be sent over shared IPs or other dedicated IPs in the same pool.
      * @param string $ip a dedicated ip address
-     * @return struct Information about the dedicated IP
+     * @return mixed Information about the dedicated IP
      *     - ip string the ip address
      *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - pool string the name of the pool that this dedicated IP belongs to
@@ -91,7 +93,7 @@ will be sent over shared IPs or other dedicated IPs in the same pool.
     /**
      * Cancels the warmup process for a dedicated IP.
      * @param string $ip a dedicated ip address
-     * @return struct Information about the dedicated IP
+     * @return mixed Information about the dedicated IP
      *     - ip string the ip address
      *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - pool string the name of the pool that this dedicated IP belongs to
@@ -115,7 +117,7 @@ will be sent over shared IPs or other dedicated IPs in the same pool.
      * @param string $ip a dedicated ip address
      * @param string $pool the name of the new pool to add the dedicated ip to
      * @param boolean $create_pool whether to create the pool if it does not exist; if false and the pool does not exist, an Unknown_Pool will be thrown.
-     * @return struct Information about the updated state of the dedicated IP
+     * @return mixed Information about the updated state of the dedicated IP
      *     - ip string the ip address
      *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - pool string the name of the pool that this dedicated IP belongs to
@@ -137,7 +139,7 @@ will be sent over shared IPs or other dedicated IPs in the same pool.
     /**
      * Deletes a dedicated IP. This is permanent and cannot be undone.
      * @param string $ip the dedicated ip to remove from your account
-     * @return struct a description of the ip that was removed from your account.
+     * @return mixed a description of the ip that was removed from your account.
      *     - ip string the ip address
      *     - deleted string a boolean indicating whether the ip was successfully deleted
      */
@@ -175,7 +177,7 @@ will be sent over shared IPs or other dedicated IPs in the same pool.
     /**
      * Describes a single dedicated IP pool.
      * @param string $pool a pool name
-     * @return struct Information about the dedicated ip pool
+     * @return mixed Information about the dedicated ip pool
      *     - name string this pool's name
      *     - created_at string the date and time that this pool was created as a UTC timestamp in YYYY-MM-DD HH:MM:SS format
      *     - ips array the dedicated IPs in this pool
@@ -202,7 +204,7 @@ will be sent over shared IPs or other dedicated IPs in the same pool.
      * Creates a pool and returns it. If a pool already exists with this
 name, no action will be performed.
      * @param string $pool the name of a pool to create
-     * @return struct Information about the dedicated ip pool
+     * @return mixed Information about the dedicated ip pool
      *     - name string this pool's name
      *     - created_at string the date and time that this pool was created as a UTC timestamp in YYYY-MM-DD HH:MM:SS format
      *     - ips array the dedicated IPs in this pool
@@ -228,7 +230,7 @@ name, no action will be performed.
     /**
      * Deletes a pool. A pool must be empty before you can delete it, and you cannot delete your default pool.
      * @param string $pool the name of the pool to delete
-     * @return struct information about the status of the pool that was deleted
+     * @return mixed information about the status of the pool that was deleted
      *     - pool string the name of the pool
      *     - deleted boolean whether the pool was deleted
      */
@@ -242,7 +244,7 @@ name, no action will be performed.
 DNS for a dedicated IP.
      * @param string $ip a dedicated ip address
      * @param string $domain the domain name to test
-     * @return struct validation results for the domain
+     * @return mixed validation results for the domain
      *     - valid string whether the domain name has a correctly-configured A record pointing to the ip address
      *     - error string if valid is false, this will contain details about why the domain's A record is incorrect
      */
@@ -255,7 +257,7 @@ DNS for a dedicated IP.
      * Configures the custom DNS name for a dedicated IP.
      * @param string $ip a dedicated ip address
      * @param string $domain a domain name to set as the dedicated IP's custom dns name.
-     * @return struct information about the dedicated IP's new configuration
+     * @return mixed information about the dedicated IP's new configuration
      *     - ip string the ip address
      *     - created_at string the date and time that the dedicated IP was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - pool string the name of the pool that this dedicated IP belongs to

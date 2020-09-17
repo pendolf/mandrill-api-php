@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Senders {
+namespace Pendolf\Mandrill;
+
+class Senders {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -54,7 +56,7 @@ class Mandrill_Senders {
      * Adds a sender domain to your account. Sender domains are added automatically as you
 send, but you can use this call to add them ahead of time.
      * @param string $domain a domain name
-     * @return struct information about the domain
+     * @return mixed information about the domain
      *     - domain string the sender domain name
      *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -78,7 +80,7 @@ send, but you can use this call to add them ahead of time.
      * Checks the SPF and DKIM settings for a domain. If you haven't already added this domain to your
 account, it will be added automatically.
      * @param string $domain a domain name
-     * @return struct information about the sender domain
+     * @return mixed information about the sender domain
      *     - domain string the sender domain name
      *     - created_at string the date and time that the sending domain was first seen as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -106,7 +108,7 @@ messages signed by that domain unless they also verify the domain. This prevents
 other Mandrill accounts from sending mail signed by your domain.
      * @param string $domain a domain name at which you can receive email
      * @param string $mailbox a mailbox at the domain where the verification email should be sent
-     * @return struct information about the verification that was sent
+     * @return mixed information about the verification that was sent
      *     - status string "sent" indicates that the verification has been sent, "already_verified" indicates that the domain has already been verified with your account
      *     - domain string the domain name you provided
      *     - email string the email address the verification email was sent to
@@ -119,7 +121,7 @@ other Mandrill accounts from sending mail signed by your domain.
     /**
      * Return more detailed information about a single sender, including aggregates of recent stats
      * @param string $address the email address of the sender
-     * @return struct the detailed information on the sender
+     * @return mixed the detailed information on the sender
      *     - address string the sender's email address
      *     - created_at string the date and time that the sender was first seen by Mandrill as a UTC date string in YYYY-MM-DD HH:MM:SS format
      *     - sent integer the total number of messages sent by this sender

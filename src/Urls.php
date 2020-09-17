@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Urls {
+namespace Pendolf\Mandrill;
+
+class Urls {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -70,7 +72,7 @@ class Mandrill_Urls {
     /**
      * Add a tracking domain to your account
      * @param string $domain a domain name
-     * @return struct information about the domain
+     * @return mixed information about the domain
      *     - domain string the tracking domain name
      *     - created_at string the date and time that the tracking domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format
@@ -88,7 +90,7 @@ class Mandrill_Urls {
     /**
      * Checks the CNAME settings for a tracking domain. The domain must have been added already with the add-tracking-domain call
      * @param string $domain an existing tracking domain name
-     * @return struct information about the tracking domain
+     * @return mixed information about the tracking domain
      *     - domain string the tracking domain name
      *     - created_at string the date and time that the tracking domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - last_tested_at string when the domain's DNS settings were last tested as a UTC string in YYYY-MM-DD HH:MM:SS format

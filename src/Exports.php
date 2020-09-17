@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Exports {
+namespace Pendolf\Mandrill;
+
+class Exports {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -12,7 +14,7 @@ job produces a zip archive, but the format of the archive is distinct for each j
 type. The api calls that initiate exports include more details about the output format
 for that job type.
      * @param string $id an export job identifier
-     * @return struct the information about the export
+     * @return mixed the information about the export
      *     - id string the unique identifier for this Export. Use this identifier when checking the export job's status
      *     - created_at string the date and time that the export job was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - type string the type of the export job - activity, reject, or whitelist
@@ -46,7 +48,7 @@ for that job type.
 containing a single file named rejects.csv that includes the following fields: email,
 reason, detail, created_at, expires_at, last_event_at, expires_at.
      * @param string $notify_email an optional email address to notify when the export job has finished.
-     * @return struct information about the rejects export job that was started
+     * @return mixed information about the rejects export job that was started
      *     - id string the unique identifier for this Export. Use this identifier when checking the export job's status
      *     - created_at string the date and time that the export job was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - type string the type of the export job
@@ -64,7 +66,7 @@ reason, detail, created_at, expires_at, last_event_at, expires_at.
 containing a single file named whitelist.csv that includes the following fields:
 email, detail, created_at.
      * @param string $notify_email an optional email address to notify when the export job has finished.
-     * @return struct information about the whitelist export job that was started
+     * @return mixed information about the whitelist export job that was started
      *     - id string the unique identifier for this Export. Use this identifier when checking the export job's status
      *     - created_at string the date and time that the export job was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - type string the type of the export job
@@ -94,7 +96,7 @@ metadata fields, they will be included in the exported data.
      *     - states[] string a message state
      * @param array $api_keys an array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included
      *     - api_keys[] string an API key associated with your account
-     * @return struct information about the activity export job that was started
+     * @return mixed information about the activity export job that was started
      *     - id string the unique identifier for this Export. Use this identifier when checking the export job's status
      *     - created_at string the date and time that the export job was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - type string the type of the export job

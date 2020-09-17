@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Webhooks {
+namespace Pendolf\Mandrill;
+
+class Webhooks {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -32,7 +34,7 @@ class Mandrill_Webhooks {
      * @param string $description an optional description of the webhook
      * @param array $events an optional list of events that will be posted to the webhook
      *     - events[] string the individual event to listen for
-     * @return struct the information saved about the new webhook
+     * @return mixed the information saved about the new webhook
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
@@ -53,7 +55,7 @@ class Mandrill_Webhooks {
     /**
      * Given the ID of an existing webhook, return the data about it
      * @param integer $id the unique identifier of a webhook belonging to this account
-     * @return struct the information about the webhook
+     * @return mixed the information about the webhook
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
@@ -78,7 +80,7 @@ class Mandrill_Webhooks {
      * @param string $description an optional description of the webhook
      * @param array $events an optional list of events that will be posted to the webhook
      *     - events[] string the individual event to listen for
-     * @return struct the information for the updated webhook
+     * @return mixed the information for the updated webhook
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook
@@ -99,7 +101,7 @@ class Mandrill_Webhooks {
     /**
      * Delete an existing webhook
      * @param integer $id the unique identifier of a webhook belonging to this account
-     * @return struct the information for the deleted webhook
+     * @return mixed the information for the deleted webhook
      *     - id integer a unique integer indentifier for the webhook
      *     - url string The URL that the event data will be posted to
      *     - description string a description of the webhook

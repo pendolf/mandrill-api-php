@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Templates {
+namespace Pendolf\Mandrill;
+
+class Templates {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -16,7 +18,7 @@ class Mandrill_Templates {
      * @param boolean $publish set to false to add a draft template without publishing
      * @param array $labels an optional array of up to 10 labels to use for filtering templates
      *     - labels[] string a single label
-     * @return struct the information saved about the new template
+     * @return mixed the information saved about the new template
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - labels array the list of labels applied to the template
@@ -44,7 +46,7 @@ class Mandrill_Templates {
     /**
      * Get the information for an existing template
      * @param string $name the immutable name of an existing template
-     * @return struct the requested template information
+     * @return mixed the requested template information
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - labels array the list of labels applied to the template
@@ -80,7 +82,7 @@ class Mandrill_Templates {
      * @param boolean $publish set to false to update the draft version of the template without publishing
      * @param array $labels an optional array of up to 10 labels to use for filtering templates
      *     - labels[] string a single label
-     * @return struct the template that was updated
+     * @return mixed the template that was updated
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - labels array the list of labels applied to the template
@@ -108,7 +110,7 @@ class Mandrill_Templates {
     /**
      * Publish the content for the template. Any new messages sent using this template will start using the content that was previously in draft.
      * @param string $name the immutable name of an existing template
-     * @return struct the template that was published
+     * @return mixed the template that was published
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - labels array the list of labels applied to the template
@@ -136,7 +138,7 @@ class Mandrill_Templates {
     /**
      * Delete a template
      * @param string $name the immutable name of an existing template
-     * @return struct the template that was deleted
+     * @return mixed the template that was deleted
      *     - slug string the immutable unique code name of the template
      *     - name string the name of the template
      *     - labels array the list of labels applied to the template
@@ -222,7 +224,7 @@ class Mandrill_Templates {
      *     - merge_vars[] struct a single merge variable
      *         - name string the merge variable's name. Merge variable names are case-insensitive and may not start with _
      *         - content string the merge variable's content
-     * @return struct the result of rendering the given template with the content and merge field values injected
+     * @return mixed the result of rendering the given template with the content and merge field values injected
      *     - html string the rendered HTML as a string
      */
     public function render($template_name, $template_content, $merge_vars=null) {

@@ -1,13 +1,15 @@
 <?php
 
-class Mandrill_Users {
+namespace Pendolf\Mandrill;
+
+class Users {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
 
     /**
      * Return the information about the API-connected user
-     * @return struct the user information including username, key, reputation, quota, and historical sending stats
+     * @return mixed the user information including username, key, reputation, quota, and historical sending stats
      *     - username string the username of the user (used for SMTP authentication)
      *     - created_at string the date and time that the user's Mandrill account was created as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - public_id string a unique, permanent identifier for this user
@@ -98,7 +100,7 @@ class Mandrill_Users {
 
     /**
      * Validate an API key and respond to a ping (anal JSON parser version)
-     * @return struct a struct with one key "PING" with a static value "PONG!"
+     * @return mixed a struct with one key "PING" with a static value "PONG!"
      */
     public function ping2() {
         $_params = array();

@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Inbound {
+namespace Pendolf\Mandrill;
+
+class Inbound {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -21,7 +23,7 @@ class Mandrill_Inbound {
     /**
      * Add an inbound domain to your account
      * @param string $domain a domain name
-     * @return struct information about the domain
+     * @return mixed information about the domain
      *     - domain string the domain name that is accepting mail
      *     - created_at string the date and time that the inbound domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - valid_mx boolean true if this inbound domain has successfully set up an MX record to deliver mail to the Mandrill servers
@@ -34,7 +36,7 @@ class Mandrill_Inbound {
     /**
      * Check the MX settings for an inbound domain. The domain must have already been added with the add-domain call
      * @param string $domain an existing inbound domain
-     * @return struct information about the inbound domain
+     * @return mixed information about the inbound domain
      *     - domain string the domain name that is accepting mail
      *     - created_at string the date and time that the inbound domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - valid_mx boolean true if this inbound domain has successfully set up an MX record to deliver mail to the Mandrill servers
@@ -47,7 +49,7 @@ class Mandrill_Inbound {
     /**
      * Delete an inbound domain from the account. All mail will stop routing for this domain immediately.
      * @param string $domain an existing inbound domain
-     * @return struct information about the deleted domain
+     * @return mixed information about the deleted domain
      *     - domain string the domain name that is accepting mail
      *     - created_at string the date and time that the inbound domain was added as a UTC string in YYYY-MM-DD HH:MM:SS format
      *     - valid_mx boolean true if this inbound domain has successfully set up an MX record to deliver mail to the Mandrill servers
@@ -76,7 +78,7 @@ class Mandrill_Inbound {
      * @param string $domain an existing inbound domain
      * @param string $pattern the search pattern that the mailbox name should match
      * @param string $url the webhook URL where the inbound messages will be published
-     * @return struct the added mailbox route information
+     * @return mixed the added mailbox route information
      *     - id string the unique identifier of the route
      *     - pattern string the search pattern that the mailbox name should match
      *     - url string the webhook URL where inbound messages will be published
@@ -91,7 +93,7 @@ class Mandrill_Inbound {
      * @param string $id the unique identifier of an existing mailbox route
      * @param string $pattern the search pattern that the mailbox name should match
      * @param string $url the webhook URL where the inbound messages will be published
-     * @return struct the updated mailbox route information
+     * @return mixed the updated mailbox route information
      *     - id string the unique identifier of the route
      *     - pattern string the search pattern that the mailbox name should match
      *     - url string the webhook URL where inbound messages will be published
@@ -104,7 +106,7 @@ class Mandrill_Inbound {
     /**
      * Delete an existing inbound mailbox route
      * @param string $id the unique identifier of an existing route
-     * @return struct the deleted mailbox route information
+     * @return mixed the deleted mailbox route information
      *     - id string the unique identifier of the route
      *     - pattern string the search pattern that the mailbox name should match
      *     - url string the webhook URL where inbound messages will be published

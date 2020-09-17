@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Tags {
+namespace Pendolf\Mandrill;
+
+class Tags {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -32,7 +34,7 @@ class Mandrill_Tags {
 that have been sent, and also deletes the tag's stats. There is no way to
 undo this operation, so use it carefully.
      * @param string $tag a tag name
-     * @return struct the tag that was deleted
+     * @return mixed the tag that was deleted
      *     - tag string the actual tag as a string
      *     - reputation integer the tag's current reputation on a scale from 0 to 100.
      *     - sent integer the total number of messages sent with this tag
@@ -54,7 +56,7 @@ undo this operation, so use it carefully.
     /**
      * Return more detailed information about a single tag, including aggregates of recent stats
      * @param string $tag an existing tag name
-     * @return struct the detailed information on the tag
+     * @return mixed the detailed information on the tag
      *     - tag string the actual tag as a string
      *     - sent integer the total number of messages sent with this tag
      *     - hard_bounces integer the total number of hard bounces by messages with this tag

@@ -1,6 +1,8 @@
 <?php
 
-class Mandrill_Subaccounts {
+namespace Pendolf\Mandrill;
+
+class SubAccounts {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
@@ -32,7 +34,7 @@ class Mandrill_Subaccounts {
      * @param string $name an optional display name to further identify the subaccount
      * @param string $notes optional extra text to associate with the subaccount
      * @param integer $custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation
-     * @return struct the information saved about the new subaccount
+     * @return mixed the information saved about the new subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - custom_quota integer an optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on reputation
@@ -52,7 +54,7 @@ class Mandrill_Subaccounts {
     /**
      * Given the ID of an existing subaccount, return the data about it
      * @param string $id the unique identifier of the subaccount to query
-     * @return struct the information about the subaccount
+     * @return mixed the information about the subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - notes string optional extra text to associate with the subaccount
@@ -89,7 +91,7 @@ class Mandrill_Subaccounts {
      * @param string $name an optional display name to further identify the subaccount
      * @param string $notes optional extra text to associate with the subaccount
      * @param integer $custom_quota an optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation
-     * @return struct the information for the updated subaccount
+     * @return mixed the information for the updated subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - custom_quota integer an optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on reputation
@@ -109,7 +111,7 @@ class Mandrill_Subaccounts {
     /**
      * Delete an existing subaccount. Any email related to the subaccount will be saved, but stats will be removed and any future sending calls to this subaccount will fail.
      * @param string $id the unique identifier of the subaccount to delete
-     * @return struct the information for the deleted subaccount
+     * @return mixed the information for the deleted subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - custom_quota integer an optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on reputation
@@ -129,7 +131,7 @@ class Mandrill_Subaccounts {
     /**
      * Pause a subaccount's sending. Any future emails delivered to this subaccount will be queued for a maximum of 3 days until the subaccount is resumed.
      * @param string $id the unique identifier of the subaccount to pause
-     * @return struct the information for the paused subaccount
+     * @return mixed the information for the paused subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - custom_quota integer an optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on reputation
@@ -149,7 +151,7 @@ class Mandrill_Subaccounts {
     /**
      * Resume a paused subaccount's sending
      * @param string $id the unique identifier of the subaccount to resume
-     * @return struct the information for the resumed subaccount
+     * @return mixed the information for the resumed subaccount
      *     - id string a unique indentifier for the subaccount
      *     - name string an optional display name for the subaccount
      *     - custom_quota integer an optional manual hourly quota for the subaccount. If not specified, the hourly quota will be managed based on reputation

@@ -1,13 +1,15 @@
 <?php
 
-class Mandrill_Messages {
+namespace Pendolf\Mandrill;
+
+class Messages {
     public function __construct(Mandrill $master) {
         $this->master = $master;
     }
 
     /**
      * Send a new transactional message through Mandrill
-     * @param struct $message the information on the message to send
+     * @param mixed $message the information on the message to send
      *     - html string the full HTML content to be sent
      *     - text string optional full text content to be sent
      *     - subject string the message subject
@@ -87,7 +89,7 @@ class Mandrill_Messages {
      *     - template_content[] struct the injection of a single piece of content into a single editable region
      *         - name string the name of the mc:edit editable region to inject into
      *         - content string the content to inject
-     * @param struct $message the other information on the message to send - same as /messages/send, but without the html content
+     * @param mixed $message the other information on the message to send - same as /messages/send, but without the html content
      *     - html string optional full HTML content to be sent if not in template
      *     - text string optional full text content to be sent
      *     - subject string the message subject
@@ -236,7 +238,7 @@ class Mandrill_Messages {
     /**
      * Get the information for a single recently sent message
      * @param string $id the unique id of the message to get - passed as the "_id" field in webhooks, send calls, or search calls
-     * @return struct the information for the message
+     * @return mixed the information for the message
      *     - ts integer the Unix timestamp from when this message was sent
      *     - _id string the message's unique id
      *     - sender string the email address of the sender
@@ -276,7 +278,7 @@ class Mandrill_Messages {
     /**
      * Get the full content of a recently sent message
      * @param string $id the unique id of the message to get - passed as the "_id" field in webhooks, send calls, or search calls
-     * @return struct the content of the message
+     * @return mixed the content of the message
      *     - ts integer the Unix timestamp from when this message was sent
      *     - _id string the message's unique id
      *     - from_email string the email address of the sender
@@ -304,7 +306,7 @@ class Mandrill_Messages {
     /**
      * Parse the full MIME document for an email message, returning the content of the message broken into its constituent pieces
      * @param string $raw_message the full MIME document of an email message
-     * @return struct the parsed message
+     * @return mixed the parsed message
      *     - subject string the subject of the message
      *     - from_email string the email address of the sender
      *     - from_name string the alias of the sender (if any)
@@ -375,7 +377,7 @@ class Mandrill_Messages {
     /**
      * Cancels a scheduled email.
      * @param string $id a scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
-     * @return struct information about the scheduled email that was cancelled.
+     * @return mixed information about the scheduled email that was cancelled.
      *     - _id string the scheduled message id
      *     - created_at string the UTC timestamp when the message was created, in YYYY-MM-DD HH:MM:SS format
      *     - send_at string the UTC timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format
@@ -392,7 +394,7 @@ class Mandrill_Messages {
      * Reschedules a scheduled email.
      * @param string $id a scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
      * @param string $send_at the new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately
-     * @return struct information about the scheduled email that was rescheduled.
+     * @return mixed information about the scheduled email that was rescheduled.
      *     - _id string the scheduled message id
      *     - created_at string the UTC timestamp when the message was created, in YYYY-MM-DD HH:MM:SS format
      *     - send_at string the UTC timestamp when the message will be sent, in YYYY-MM-DD HH:MM:SS format
