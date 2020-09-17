@@ -4,34 +4,34 @@ namespace Pendolf\Mandrill;
 
 use Pendolf\Mandrill\Exceptions\Error;
 use Pendolf\Mandrill\Exceptions\HttpError;
-use Pendolf\Mandrill\Exceptions\Invalid_CustomDNS;
-use Pendolf\Mandrill\Exceptions\Invalid_CustomDNSPending;
-use Pendolf\Mandrill\Exceptions\Invalid_DeleteDefaultPool;
-use Pendolf\Mandrill\Exceptions\Invalid_DeleteNonEmptyPool;
-use Pendolf\Mandrill\Exceptions\Invalid_EmptyDefaultPool;
-use Pendolf\Mandrill\Exceptions\Invalid_Template;
+use Pendolf\Mandrill\Exceptions\InvalidCustomDNS;
+use Pendolf\Mandrill\Exceptions\InvalidCustomDNSPending;
+use Pendolf\Mandrill\Exceptions\InvalidDeleteDefaultPool;
+use Pendolf\Mandrill\Exceptions\InvalidDeleteNonEmptyPool;
+use Pendolf\Mandrill\Exceptions\InvalidEmptyDefaultPool;
+use Pendolf\Mandrill\Exceptions\InvalidTemplate;
 use Pendolf\Mandrill\Exceptions\InvalidKey;
-use Pendolf\Mandrill\Exceptions\Invalid_Reject;
-use Pendolf\Mandrill\Exceptions\Invalid_Tag_Name;
-use Pendolf\Mandrill\Exceptions\IP_ProvisionLimit;
-use Pendolf\Mandrill\Exceptions\Metadata_FieldLimit;
+use Pendolf\Mandrill\Exceptions\InvalidReject;
+use Pendolf\Mandrill\Exceptions\InvalidTagName;
+use Pendolf\Mandrill\Exceptions\IpProvisionLimit;
+use Pendolf\Mandrill\Exceptions\MetadataFieldLimit;
 use Pendolf\Mandrill\Exceptions\NoSendingHistory;
 use Pendolf\Mandrill\Exceptions\PaymentRequired;
 use Pendolf\Mandrill\Exceptions\PoorReputation;
 use Pendolf\Mandrill\Exceptions\ServiceUnavailable;
-use Pendolf\Mandrill\Exceptions\Unknown_Export;
-use Pendolf\Mandrill\Exceptions\Unknown_InboundDomain;
-use Pendolf\Mandrill\Exceptions\Unknown_InboundRoute;
-use Pendolf\Mandrill\Exceptions\Unknown_IP;
-use Pendolf\Mandrill\Exceptions\Unknown_Message;
-use Pendolf\Mandrill\Exceptions\Unknown_MetadataField;
-use Pendolf\Mandrill\Exceptions\Unknown_Pool;
-use Pendolf\Mandrill\Exceptions\Unknown_Sender;
-use Pendolf\Mandrill\Exceptions\Unknown_Subaccount;
-use Pendolf\Mandrill\Exceptions\Unknown_Template;
-use Pendolf\Mandrill\Exceptions\Unknown_TrackingDomain;
-use Pendolf\Mandrill\Exceptions\Unknown_Url;
-use Pendolf\Mandrill\Exceptions\Unknown_Webhook;
+use Pendolf\Mandrill\Exceptions\UnknownExport;
+use Pendolf\Mandrill\Exceptions\UnknownInboundDomain;
+use Pendolf\Mandrill\Exceptions\UnknownInboundRoute;
+use Pendolf\Mandrill\Exceptions\UnknownIp;
+use Pendolf\Mandrill\Exceptions\UnknownMessage;
+use Pendolf\Mandrill\Exceptions\UnknownMetadataField;
+use Pendolf\Mandrill\Exceptions\UnknownPool;
+use Pendolf\Mandrill\Exceptions\UnknownSender;
+use Pendolf\Mandrill\Exceptions\UnknownSubaccount;
+use Pendolf\Mandrill\Exceptions\UnknownTemplate;
+use Pendolf\Mandrill\Exceptions\UnknownTrackingDomain;
+use Pendolf\Mandrill\Exceptions\UnknownUrl;
+use Pendolf\Mandrill\Exceptions\UnknownWebhook;
 use Pendolf\Mandrill\Exceptions\ValidationError;
 
 class Mandrill {
@@ -45,32 +45,32 @@ class Mandrill {
         "ValidationError" => ValidationError::class,
         "Invalid_Key" => InvalidKey::class,
         "PaymentRequired" => PaymentRequired::class,
-        "Unknown_Subaccount" => Unknown_Subaccount::class,
-        "Unknown_Template" => Unknown_Template::class,
+        "Unknown_Subaccount" => UnknownSubaccount::class,
+        "Unknown_Template" => UnknownTemplate::class,
         "ServiceUnavailable" => ServiceUnavailable::class,
-        "Unknown_Message" => Unknown_Message::class,
-        "Invalid_Tag_Name" => Invalid_Tag_Name::class,
-        "Invalid_Reject" => Invalid_Reject::class,
-        "Unknown_Sender" => Unknown_Sender::class,
-        "Unknown_Url" => Unknown_Url::class,
-        "Unknown_TrackingDomain" => Unknown_TrackingDomain::class,
-        "Invalid_Template" => Invalid_Template::class,
-        "Unknown_Webhook" => Unknown_Webhook::class,
-        "Unknown_InboundDomain" => Unknown_InboundDomain::class,
-        "Unknown_InboundRoute" => Unknown_InboundRoute::class,
-        "Unknown_Export" => Unknown_Export::class,
-        "IP_ProvisionLimit" => IP_ProvisionLimit::class,
-        "Unknown_Pool" => Unknown_Pool::class,
+        "Unknown_Message" => UnknownMessage::class,
+        "Invalid_Tag_Name" => InvalidTagName::class,
+        "Invalid_Reject" => InvalidReject::class,
+        "Unknown_Sender" => UnknownSender::class,
+        "Unknown_Url" => UnknownUrl::class,
+        "Unknown_TrackingDomain" => UnknownTrackingDomain::class,
+        "Invalid_Template" => InvalidTemplate::class,
+        "Unknown_Webhook" => UnknownWebhook::class,
+        "Unknown_InboundDomain" => UnknownInboundDomain::class,
+        "Unknown_InboundRoute" => UnknownInboundRoute::class,
+        "Unknown_Export" => UnknownExport::class,
+        "IP_ProvisionLimit" => IpProvisionLimit::class,
+        "Unknown_Pool" => UnknownPool::class,
         "NoSendingHistory" => NoSendingHistory::class,
         "PoorReputation" => PoorReputation::class,
-        "Unknown_IP" => Unknown_IP::class,
-        "Invalid_EmptyDefaultPool" => Invalid_EmptyDefaultPool::class,
-        "Invalid_DeleteDefaultPool" => Invalid_DeleteDefaultPool::class,
-        "Invalid_DeleteNonEmptyPool" => Invalid_DeleteNonEmptyPool::class,
-        "Invalid_CustomDNS" => Invalid_CustomDNS::class,
-        "Invalid_CustomDNSPending" => Invalid_CustomDNSPending::class,
-        "Metadata_FieldLimit" => Metadata_FieldLimit::class,
-        "Unknown_MetadataField" => Unknown_MetadataField::class,
+        "Unknown_IP" => UnknownIp::class,
+        "Invalid_EmptyDefaultPool" => InvalidEmptyDefaultPool::class,
+        "Invalid_DeleteDefaultPool" => InvalidDeleteDefaultPool::class,
+        "Invalid_DeleteNonEmptyPool" => InvalidDeleteNonEmptyPool::class,
+        "Invalid_CustomDNS" => InvalidCustomDNS::class,
+        "Invalid_CustomDNSPending" => InvalidCustomDNSPending::class,
+        "Metadata_FieldLimit" => MetadataFieldLimit::class,
+        "Unknown_MetadataField" => UnknownMetadataField::class,
     );
 
     public function __construct($apikey=null) {

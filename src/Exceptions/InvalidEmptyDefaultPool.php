@@ -5,6 +5,6 @@ namespace Pendolf\Mandrill\Exceptions;
 /**
  * You cannot remove the last IP from your default IP pool.
  */
-class Invalid_EmptyDefaultPool extends Error
+class InvalidEmptyDefaultPool extends Error
 {
 }
